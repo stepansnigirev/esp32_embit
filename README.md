@@ -1,15 +1,30 @@
 # esp32_embit
 
-
-to flash on M5stickC Plus:
-
-```
-esptool.py -p /dev/ttyUSB0 -b 115200 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_size detect --flash_freq 40m 0x1000 build-GENERIC/bootloader/bootloader.bin 0x8000 build-GENERIC/partition_table/partition-table.bin 0x10000 build-GENERIC/micropython.bin
-```
-
-or
+1. Install [esp-idf](https://docs.espressif.com/projects/esp-idf/en/v4.0/get-started/index.html#step-3-set-up-the-tools):
 
 ```
-esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
-esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 115200 write_flash --flash_mode dio --flash_size detect --flash_freq 40m -z 0x1000 build-GENERIC/firmware.bin
+git clone -b v4.0 --recursive https://github.com/espressif/esp-idf.git
+cd esp-idf
+git checkout 4c81978a3e2220674a432a588292a4c860eef27b
+git submodule update --recursive
+./install.sh
+source ./export.sh
+```
+
+2. Clone this repo recursively:
+
+```
+git clone https://github.com/stepansnigirev/esp32_embit.git --recursive
+```
+
+3. Make:
+
+```
+make esp32
+```
+
+4. Flash:
+
+```
+make flash
 ```
