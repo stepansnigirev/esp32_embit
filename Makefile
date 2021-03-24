@@ -28,7 +28,7 @@ esp32: $(TARGET_DIR) mpy-cross $(MPY_DIR)/ports/stm32
 		BOARD=$(BOARD) \
 		USER_C_MODULES=$(USER_C_MODULES) \
 		FROZEN_MANIFEST=$(FROZEN_MANIFEST_FULL) \
-		DEBUG=$(DEBUG) -DMODULE_SECP256K1_ENABLED=1
+		DEBUG=$(DEBUG)
 
 # unixport (simulator)
 unix: $(TARGET_DIR) mpy-cross $(MPY_DIR)/ports/unix
