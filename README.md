@@ -28,3 +28,20 @@ make esp32
 ```
 make flash
 ```
+
+5. Connect to the board
+
+```
+screen /dev/ttyUSB0 115200
+```
+
+6. Play
+
+No color & text support yet, but the display is working.
+
+```py
+from m5 import display
+display.fill(255)
+display.off()
+display.on()
+```
